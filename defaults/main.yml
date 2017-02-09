@@ -1,0 +1,18 @@
+---
+
+hostname: "{{ inventory_hostname_short }}"
+fqdn: "{{ inventory_hostname }}"
+
+search_domain: ""
+
+nameservers_ipv4:
+  - "8.8.8.8"
+  - "8.8.4.4"
+  - "91.239.100.100"
+  - "89.233.43.71"
+
+nameservers_ipv6:
+  - "2001:4860:4860::8888"
+  - "2001:4860:4860::8844"
+  - "2001:67c:28a4::"
+  - "2002:d596:2a92:1:71:53::"

@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+
+options timeout:1
+options attempts:5
+
+{% if search_domain -%}
+domain {{ search_domain }}
+search {{ search_domain }}
+{% endif -%}
+{% for nameserver in nameservers_ipv4 -%}
+nameserver {{ nameserver }}
+{% endfor %}
+{% for nameserver in nameservers_ipv6 -%}
+nameserver {{ nameserver }}
+{% endfor %}
