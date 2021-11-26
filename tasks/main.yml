@@ -28,3 +28,12 @@
     group: root
     mode: 0444
 
+- name: generate snakeoil certificate
+  command: "openssl req -x509 -newkey rsa:4096 -nodes -subj '/CN={{ fqdn }}' -addext 'subjectAltName = DNS:{{ fqdn }},IP:127.0.0.1,IP:::1' -days 3650 -keyout /etc/ssl/snakeoil.key -out /etc/ssl/snakeoil.crt"
+  args:
+    creates: /etc/ssl/snakeoil.crt
+
+- name: copy dhparam.pem
+  copy:
+    src: "dhparam.pem"
+    dest: "/etc/ssl/dhparam.pem"
